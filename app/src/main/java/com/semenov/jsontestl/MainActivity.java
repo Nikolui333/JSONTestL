@@ -29,12 +29,13 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Calling JSON
          */
-        Call<CurrencyOperations> call = api.getData("bash");
+        Call<CurrencyOperations> call = api.getMyJSON();
+               // getData("bash");
 
         mTextView = (TextView) findViewById(R.id.text);
        // final CurrencyOperations operations = new CurrencyOperations();
       //  this.operations = new CurrencyOperations();
-        final USD usd = new USD();
+       // final USD usd = new USD();
 
 /*        HashMap<String, Object> hm;
         hm = new HashMap<String, Object>();
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<CurrencyOperations>() {
             @Override
             public void onResponse(Call<CurrencyOperations> call, Response<CurrencyOperations> response) {
+                USD usd = response.body().getValute().getUSD();
                 mTextView.setText(usd.getID()); // ???
             }
 
