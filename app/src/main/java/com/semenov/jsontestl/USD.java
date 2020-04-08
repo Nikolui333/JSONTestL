@@ -16,7 +16,6 @@ public class USD implements Parcelable{
     @Expose
     private double value;
 
-
     public String getName() {
         return name;
     }
@@ -38,14 +37,6 @@ public class USD implements Parcelable{
         name = in.readString();
         value = in.readDouble();
     }
-
-/*    protected USD (){
-
-    }
-
-    protected USD (String name, double value){
-
-    }*/
 
     @Override
     public int describeContents() {

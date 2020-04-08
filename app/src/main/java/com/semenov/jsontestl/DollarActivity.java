@@ -8,20 +8,19 @@ import android.widget.TextView;
 
 public class DollarActivity extends AppCompatActivity {
 
+    TextView mTextView;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dollar);
 
-        TextView textView = new TextView(this);
-        textView.setTextSize(20);
-        textView.setPadding(16, 16, 16, 16);
+        mTextView = (TextView) findViewById(R.id.dollarText);
 
         Bundle arguments = getIntent().getExtras();
         USD usd = arguments.getParcelable(USD.class.getSimpleName());
 
-        textView.setText("Валюта: " + usd.getName() + "\nКурс: " + usd.getValue());
-        setContentView(textView);
+        mTextView.setText("Валюта: " + usd.getName() + "\nКурс: " + usd.getValue());
     }
 }
