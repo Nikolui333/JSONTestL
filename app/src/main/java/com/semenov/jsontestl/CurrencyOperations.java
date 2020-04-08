@@ -61,5 +61,4 @@ public class CurrencyOperations {
     public void setValute(Valute valute) {
         this.valute = valute;
     }
-
 }

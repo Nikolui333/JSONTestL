@@ -2,7 +2,6 @@ package com.semenov.jsontestl;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public interface ApiService {
     /*
@@ -11,6 +10,4 @@ public interface ApiService {
     */
     @GET("/daily_json.js")
     Call<CurrencyOperations> getMyJSON();
-   // Call<CurrencyOperations> getData(@Query("ID") String resourceName);
-    //getMyJSON();
 }

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class USD {
 
-    @SerializedName("ID") // это связывает то, что находится в json и мой код (я так думаю)
+    @SerializedName("ID")
     @Expose
     private String iD;
     @SerializedName("NumCode")
@@ -83,5 +83,4 @@ public class USD {
     public void setPrevious(double previous) {
         this.previous = previous;
     }
-
 }

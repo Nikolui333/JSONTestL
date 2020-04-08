@@ -17,5 +17,4 @@ public class Valute {
     public void setUSD(USD uSD) {
         this.uSD = uSD;
     }
-
 }

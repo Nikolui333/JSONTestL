@@ -18,8 +18,6 @@ public class RetroClient {
                 .baseUrl(ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-        // !!!
     }
 
     /**

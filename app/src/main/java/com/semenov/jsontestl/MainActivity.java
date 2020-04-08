@@ -2,11 +2,11 @@ package com.semenov.jsontestl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,6 +15,9 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextView;
+    private TextView mTextViewNumCode;
+    private TextView mTextViewName;
+    private TextView mTextViewValue;
     private CurrencyOperations operations;
     private ArrayList<CurrencyOperations> mList;
 
@@ -30,23 +33,21 @@ public class MainActivity extends AppCompatActivity {
          * Calling JSON
          */
         Call<CurrencyOperations> call = api.getMyJSON();
-               // getData("bash");
 
         mTextView = (TextView) findViewById(R.id.text);
-       // final CurrencyOperations operations = new CurrencyOperations();
-      //  this.operations = new CurrencyOperations();
-       // final USD usd = new USD();
-
-/*        HashMap<String, Object> hm;
-        hm = new HashMap<String, Object>();
-        //читаем что в себе хранит параметр balance
-        hm.put(NAME, urls.getJSONObject(i).getString("name").toString());*/
+        mTextViewNumCode = (TextView) findViewById(R.id.textNumCode);
+        mTextViewName = (TextView) findViewById(R.id.textName);
+        mTextViewValue = (TextView) findViewById(R.id.textValue);
 
         call.enqueue(new Callback<CurrencyOperations>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<CurrencyOperations> call, Response<CurrencyOperations> response) {
                 USD usd = response.body().getValute().getUSD();
-                mTextView.setText(usd.getID()); // ???
+                mTextView.setText(usd.getID());
+                mTextViewNumCode.setText(usd.getNumCode());
+                mTextViewName.setText(usd.getName());
+                mTextViewValue.setText(usd.getValue()+"");
             }
 
             @Override
