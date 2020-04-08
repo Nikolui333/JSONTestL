@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JSONTestL</string>
+    <string name="compare">Сравнить</string>
 </resources>

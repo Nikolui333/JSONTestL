@@ -1,64 +1,21 @@
 
 package com.semenov.jsontestl;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class USD {
+public class USD implements Parcelable{
 
-    @SerializedName("ID")
-    @Expose
-    private String iD;
-    @SerializedName("NumCode")
-    @Expose
-    private String numCode;
-    @SerializedName("CharCode")
-    @Expose
-    private String charCode;
-    @SerializedName("Nominal")
-    @Expose
-    private int nominal;
     @SerializedName("Name")
     @Expose
     private String name;
     @SerializedName("Value")
     @Expose
     private double value;
-    @SerializedName("Previous")
-    @Expose
-    private double previous;
 
-    public String getID() {
-        return iD;
-    }
-
-    public void setID(String iD) {
-        this.iD = iD;
-    }
-
-    public String getNumCode() {
-        return numCode;
-    }
-
-    public void setNumCode(String numCode) {
-        this.numCode = numCode;
-    }
-
-    public String getCharCode() {
-        return charCode;
-    }
-
-    public void setCharCode(String charCode) {
-        this.charCode = charCode;
-    }
-
-    public int getNominal() {
-        return nominal;
-    }
-
-    public void setNominal(int nominal) {
-        this.nominal = nominal;
-    }
 
     public String getName() {
         return name;
@@ -76,11 +33,41 @@ public class USD {
         this.value = value;
     }
 
-    public double getPrevious() {
-        return previous;
+
+    protected USD(Parcel in) {
+        name = in.readString();
+        value = in.readDouble();
     }
 
-    public void setPrevious(double previous) {
-        this.previous = previous;
+/*    protected USD (){
+
     }
+
+    protected USD (String name, double value){
+
+    }*/
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeDouble(value);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<USD> CREATOR = new Parcelable.Creator<USD>() {
+        @Override
+        public USD createFromParcel(Parcel in) {
+            return new USD(in);
+        }
+
+        @Override
+        public USD[] newArray(int size) {
+            return new USD[size];
+        }
+    };
 }
