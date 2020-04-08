@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 mTextView.setText(usd.getID());
                 mTextViewNumCode.setText(usd.getNumCode());
                 mTextViewName.setText(usd.getName());
-                mTextViewValue.setText(usd.getValue()+"");
+                mTextViewValue.setText(""+usd.getValue());
             }
 
             @Override
